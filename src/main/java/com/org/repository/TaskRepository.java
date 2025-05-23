@@ -24,7 +24,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     Page<Task> findAll(Pageable pageable);
 
     // Lista tareas dentro de un rango de fechas con paginación
-    @Query("SELECT t FROM Task t WHERE t.StartDateTime >= :start AND t.EndDateTime <= :end")
+    @Query("SELECT t FROM Task t WHERE t.StartDate >= :start AND t.EndDate <= :end")
     Page<Task> findTasksByDateRange(LocalDate start, LocalDate end, Pageable pageable);
 
     // Lista tareas de un developer según una lista de estados
